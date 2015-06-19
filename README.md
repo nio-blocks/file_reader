@@ -1,7 +1,7 @@
-Example
+FileReader
 ===========
 
-What does this block do?
+Read contents of a file.
 
 Properties
 --------------
