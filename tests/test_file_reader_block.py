@@ -20,7 +20,7 @@ class TestFileReader(NIOBlockTestCase):
         self.configure_block(blk, {})
         mock = mock_open(read_data='this is my amazing file')
         with patch('builtins.open', mock):
-            blk.process_signals([Signal()])
+            blk.process_signals([Signal({'a': 1})])
         self.assert_num_signals_notified(1)
         self.assertDictEqual(self.last_notified['default'][0].to_dict(),
                              {'file': '/tmp/file.txt',
@@ -37,8 +37,24 @@ class TestFileReader(NIOBlockTestCase):
                                    'contents_attr': contents_attr})
         mock = mock_open(read_data=file_contents)
         with patch('builtins.open', mock):
-            blk.process_signals([Signal()])
+            blk.process_signals([Signal({'a': 1})])
         self.assert_num_signals_notified(1)
         self.assertDictEqual(self.last_notified['default'][0].to_dict(),
                              {file_attr: file,
                               contents_attr: file_contents})
+
+    def test_enrich_signals_mixin(self):
+        blk = FileReader()
+        file_contents = 'mixin'
+        self.configure_block(blk, {'enrich':
+                                   {'enrich_field': 'new_field',
+                                    'exclude_existing': False}})
+        mock = mock_open(read_data=file_contents)
+        with patch('builtins.open', mock):
+            blk.process_signals([Signal({'a': 1})])
+        self.assert_num_signals_notified(1)
+        self.assertDictEqual(self.last_notified['default'][0].to_dict(),
+                             {'a': 1,
+                              'new_field':
+                              {'file': '/tmp/file.txt',
+                               'contents': file_contents}})
