@@ -17,6 +17,7 @@ class TestFileReader(NIOBlockTestCase):
 
     def test_defaults(self):
         blk = FileReader()
+        blk._get_filename = MagicMock(return_value='/tmp/file.txt')
         self.configure_block(blk, {})
         mock = mock_open(read_data='this is my amazing file')
         with patch('builtins.open', mock):
@@ -32,6 +33,7 @@ class TestFileReader(NIOBlockTestCase):
         file_contents = 'this is not a test... actually, it is.'
         file_attr = 'my_file'
         contents_attr = 'file_contents'
+        blk._get_filename = MagicMock(return_value=file)
         self.configure_block(blk, {'file': file,
                                    'file_attr': file_attr,
                                    'contents_attr': contents_attr})
@@ -46,6 +48,7 @@ class TestFileReader(NIOBlockTestCase):
     def test_enrich_signals_mixin(self):
         blk = FileReader()
         file_contents = 'mixin'
+        blk._get_filename = MagicMock(return_value='/tmp/file.txt')
         self.configure_block(blk, {'enrich':
                                    {'enrich_field': 'new_field',
                                     'exclude_existing': False}})

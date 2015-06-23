@@ -8,7 +8,7 @@ Input signals trigger a read from a file. The contents and name of that file are
 Properties
 ----------
 
--   **File** (expr): Location of file to read from. Path must be absolute.
+-   **File** (expr): Location of file to read from. Can be absolte path, relative to nio project environment or relative block file.
 -   **File Field** (str): New attribute name to add to Signal that contains the **File** name.
 -   **File Contents Field** (str): New attribute name to add to Signal that contains the contents of the file.
 -   **Exclude Existing** (bool): Whether or not to exclude existing data. If this is checked, a new signal will be notified for every incoming signal. In other words, no data from the incoming signal will be included on the notified signal.
