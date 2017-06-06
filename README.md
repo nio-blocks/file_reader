@@ -8,11 +8,11 @@ Input signals trigger a read from a file. The contents and name of that file are
 Properties
 ----------
 
--   **file** (expr): Location of file to read from. Can be the absolute path, relative to the nio project environment or relative block file.
--   **file_field** (str): New attribute name to add to Signal that contains the `file` name.
--   **file_contents_field** (str): New attribute name to add to the Signal that contains the contents of the file.
--   **exclude_existing** (bool): Whether or not to exclude the existing signal data. If this is checked, a new signal will be notified for every incoming signal. In other words, no data from the incoming signal will be included on the notified signal.
--   **results_field** (str): The attribute on the signal to store the results from this block. If this is empty, the results will be merged onto the incoming signal. This is the default operation. Having this field allows a block to "save" the results of an operation to a single field on an incoming signal and notify the enriched signal.
+-   **file** (type:expression): Location of file to read from. Can be the absolute path, relative to the nio project environment or relative block file.
+-   **file_field** (type:string): New attribute name to add to Signal that contains the `file` name.
+-   **file_contents_field** (type:string): New attribute name to add to the Signal that contains the contents of the file.
+-   **exclude_existing** (type:bool): Whether or not to exclude the existing signal data. If this is checked, a new signal will be notified for every incoming signal. In other words, no data from the incoming signal will be included on the notified signal.
+-   **results_field** (type:string): The attribute on the signal to store the results from this block. If this is empty, the results will be merged onto the incoming signal. This is the default operation. Having this field allows a block to "save" the results of an operation to a single field on an incoming signal and notify the enriched signal.
 
 Dependencies
 ------------
