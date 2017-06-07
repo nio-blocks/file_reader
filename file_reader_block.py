@@ -1,12 +1,9 @@
 from os.path import join, dirname, realpath, isfile
 from nio.block.base import Block
-from nio.util.discovery import discoverable
 from nio.properties import Property, StringProperty, \
     VersionProperty, FileProperty
 from nio.block.mixins.enrich.enrich_signals import EnrichSignals
 
-
-@discoverable
 class FileReader(EnrichSignals, Block):
 
     """ Reads contents of a file.
