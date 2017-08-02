@@ -1,36 +1,10 @@
 {
-    "nio/FileReader": {
-        "Category": "Hardware",
-        "Properties": {
-            "file": {
-                "description": "Location of file to read from. Can be the absolute path, relative to the nio project environment or relative block file.",
-                "type": "expression"
-            },
-            "exclude_existing": {
-                "description": "Whether or not to exclude the existing signal data. If this is checked, a new signal will be notified for every incoming signal. In other words, no data from the incoming signal will be included on the notified signal.",
-                "type": "bool"
-            },
-            "file_contents_field": {
-                "description": "New attribute name to add to the Signal that contains the contents of the file.",
-                "type": "string"
-            },
-            "file_field": {
-                "description": "New attribute name to add to Signal that contains the `file` name.",
-                "type": "string"
-            },
-            "results_field": {
-                "description": "The attribute on the signal to store the results from this block. If this is empty, the results will be merged onto the incoming signal. This is the default operation. Having this field allows a block to \"save\" the results of an operation to a single field on an incoming signal and notify the enriched signal.",
-                "type": "string"
-            }
-        },
-        "Input": {
-            "Description": "Any list of signals."
-        },
-        "Output": {
-            "Description": "The output Signals have two attributes:\n-  `file_field`, containing the `file` name.\n-  `file_contents_field`, containing the contents of `file`.\nIf `exclude_exiting` is `True`, then the original Signal will be passed through and `file_field` and `file_contents_field` will be stored in `results_field`. If `results_field` is blank, then `file_field` and `file_contents_field` will be merged into the original Signal."
-        },
-        "Version": "1.0.0",
-        "Commands": {},
-        "Description": "Reads the contents of a file.\nInput signals trigger a read from a file. The contents and name of that file are placed on the notified signal as configurable attributes."
-    }
+  "nio/FileReader": {
+    "version": "0.0.1",
+    "description": "",
+    "inputs": {},
+    "outputs": {},
+    "properties": {},
+    "commands": {}
+  }
 }
