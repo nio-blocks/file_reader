@@ -1,15 +1,13 @@
-from collections import defaultdict
 from unittest.mock import patch, MagicMock, mock_open
+
 from nio.signal.base import Signal
 from nio.testing.block_test_case import NIOBlockTestCase
-from ..file_reader_block import FileReader
 from nio.block.terminals import DEFAULT_TERMINAL
+
+from ..file_reader_block import FileReader
 
 
 class TestFileReader(NIOBlockTestCase):
-
-    def setUp(self):
-        super().setUp()
 
     def test_defaults(self):
         blk = FileReader()

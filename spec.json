@@ -1,10 +1,46 @@
 {
   "nio/FileReader": {
-    "version": "0.0.1",
-    "description": "",
-    "inputs": {},
-    "outputs": {},
-    "properties": {},
+    "version": "0.1.0",
+    "description": "Reads the contents of a file. Input signals trigger a read from a file. The contents and name of that file are placed on the notified signal as configurable attributes.",
+    "properties": {
+      "contents_attr": {
+        "title": "File Contents Field",
+        "type": "StringType",
+        "description": "New attribute name to add to the Signal that contains the contents of the file.",
+        "default": "contents"
+      },
+      "enrich": {
+        "title": "Signal Enrichment",
+        "type": "ObjectType",
+        "description": "Options for enriching output signals. *Exclude existing:*  Whether or not to exclude the existing signal data. If this is checked, a new signal will be notified for every incoming signal. In other words, no data from the incoming signal will be included on the notified signal. *Results field:* The attribute on the signal to store the results from this block. If this is empty, the results will be merged onto the incoming signal. This is the default operation. Having this field allows a block to save the results of an operation to a single field on an incoming signal and notify the enriched signal.",
+        "default": {
+          "exclude_existing": true,
+          "enrich_field": ""
+        }
+      },
+      "file": {
+        "title": "File",
+        "type": "FileType",
+        "description": "Location of file to read from. Can be the absolute path, relative to the nio project environment or relative block file.",
+        "default": "/tmp/file.txt"
+      },
+      "file_attr": {
+        "title": "File Field",
+        "type": "StringType",
+        "description": "New attribute name to add to Signal that contains the `file` name.",
+        "default": "file"
+      }
+    },
+    "inputs": {
+      "default": {
+        "description": "Any list of signals."
+      }
+    },
+    "outputs": {
+      "default": {
+        "description": "The output Signals have two attributes: `file_field`, containing the `file` name and `file_contents_field`, containing the contents of `file`."
+      }
+    },
     "commands": {}
   }
 }
