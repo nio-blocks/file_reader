@@ -1,8 +1,7 @@
-from os.path import join, dirname, realpath, isfile
 from nio.block.base import Block
-from nio.properties import Property, StringProperty, \
-    VersionProperty, FileProperty
-from nio.block.mixins.enrich.enrich_signals import EnrichSignals
+from nio.properties import StringProperty, VersionProperty, FileProperty
+from nio.block.mixins import EnrichSignals
+
 
 class FileReader(EnrichSignals, Block):
 
