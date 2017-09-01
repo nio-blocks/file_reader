@@ -14,7 +14,7 @@ class FileReader(EnrichSignals, Block):
     file_attr = StringProperty(title='File Field', default='file')
     contents_attr = StringProperty(title='File Contents Field',
                                    default='contents')
-    version = VersionProperty('0.1.0')
+    version = VersionProperty("0.1.0")
 
     def process_signals(self, signals, input_id='default'):
         out_sigs = []
