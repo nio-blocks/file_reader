@@ -2,6 +2,9 @@
   "nio/FileReader": {
     "version": "0.1.0",
     "description": "Reads the contents of a file. Input signals trigger a read from a file. The contents and name of that file are placed on the notified signal as configurable attributes.",
+    "categories": [
+      "File System"
+    ],
     "properties": {
       "contents_attr": {
         "title": "File Contents Field",
